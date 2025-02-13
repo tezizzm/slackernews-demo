@@ -25,7 +25,12 @@ on:
         required: true
         default: proxy.replicated.com
         type: string
-
+      slackernews_repo:
+        description: Repository that contains the Slackernews app (ie. slackernews/slackernews.git)
+        required: true
+        default: slackernews/slackernews.git
+        type: string
+      
 env:
   REGISTRY: ghcr.io
 
@@ -42,7 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: slackernews/slackernews.git
+          repository: ${{ inputs.slackernews_repo }}
           ref: ${{ inputs.branch }}
           token: ${{ secrets.GITHUB_TOKEN }} 
 
@@ -120,7 +125,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: slackernews/slackernews.git
+          repository: ${{ inputs.slackernews_repo }}
           ref: ${{ inputs.branch }}
           token: ${{ github.token }} 
 
