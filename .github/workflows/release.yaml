@@ -149,7 +149,7 @@ jobs:
         with:
           include: 'chart/slackernews/values.yaml'
           find: '$IMAGE'
-          replace: 'proxy/${{ inputs.slug }}/${{ env.REGISTRY }}/${{ inputs.namespace }}/slackernews-web:${{ inputs.version }}'
+          replace: 'proxy/${{ inputs.slug }}/${{ env.REGISTRY }}/${{ inputs.namespace }}/slackernews-web'
           regex: false
 
       - name: Update the values.yaml with the image versionAdd commentMore actions
